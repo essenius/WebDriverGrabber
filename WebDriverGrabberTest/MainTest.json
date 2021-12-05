@@ -1,0 +1,11 @@
+{
+  "targetFolder": "%temp%",
+  "browsers": [
+    {
+      "name": "MainTest",
+      "versionUrl": "https://api.github.com/repos/essenius/FitNesseFitSharpRest/contributors",
+      "versionExtractionRegex": "\\\"login\\\":\\s*\\\"(.+?)\\\",",
+      "driverUrlTemplate": "https://raw.githubusercontent.com/{0}/FitNesseFitSharpRest/master/README.md"
+    }
+  ]
+}

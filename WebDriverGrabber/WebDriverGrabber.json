@@ -1,0 +1,30 @@
+{
+  "targetFolder": "%localappdata%\\BrowserDrivers",
+  "browsers": [
+    {
+      "name": "ChromeDriver",
+      "versionUrl": "https://chromedriver.storage.googleapis.com/LATEST_RELEASE",
+      "driverUrlTemplate": "https://chromedriver.storage.googleapis.com/{0}/chromedriver_win32.zip"
+    },
+    {
+      "name": "EdgeDriver",
+      "versionUrl": "https://msedgedriver.azureedge.net/LATEST_STABLE",
+      "versionExtractionRegex": "",
+      "driverUrlTemplate": "https://msedgedriver.azureedge.net/{0}/edgedriver_win64.zip"
+    },
+    {
+      "name": "GeckoDriver",
+      "versionUrl": "https://api.github.com/repos/mozilla/geckodriver/releases/latest",
+      "versionExtractionRegex": "\\\"tag_name\\\":\\\"(v[\\d\\.]+)\\\"",
+      "driverUrlTemplate": "https://github.com/mozilla/geckodriver/releases/download/{0}/geckodriver-{0}-win64.zip",
+      "downloadedVersion":  "v0.30.0"
+    },
+    {
+      "name": "IEDriver",
+      "version": "4.0.0",
+      "driverUrlTemplate": "https://github.com/SeleniumHQ/selenium/releases/download/selenium-{0}/IEDriverServer_Win32_{0}.zip",
+      "downloadedVersion":  "4.0.0"
+    }
+  ]
+}
+
