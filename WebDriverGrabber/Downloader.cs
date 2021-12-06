@@ -51,7 +51,6 @@ namespace WebDriverGrabber
                     }
                     _latestVersion = _grabber.Get(_browser.VersionUrl).TrimEnd();
                     if (string.IsNullOrEmpty(_browser.VersionExtractionRegex)) return _latestVersion;
-                    Console.WriteLine(_browser.VersionExtractionRegex);
                     var regex = new Regex(_browser.VersionExtractionRegex);
                     var match = regex.Match(_latestVersion);
                     if (!match.Success)
@@ -59,7 +58,6 @@ namespace WebDriverGrabber
                         throw new FormatException($"Could not find version for {_browser.Name} in {_browser.VersionUrl}.");
                     }
                     _latestVersion = match.Groups[1].Value;
-                    Console.WriteLine($"Latest Version: {_latestVersion}");
                 }
                 return _latestVersion;
             }
@@ -76,8 +74,6 @@ namespace WebDriverGrabber
             {
                 var driverUrl = string.Format(_browser.DriverUrlTemplate, LatestVersion);
                 var driverName = Path.GetFileName(driverUrl);
-                Console.WriteLine(driverUrl);
-                Console.WriteLine(driverName);
                 return Path.Combine(_targetFolder, driverName);
             }
         }
@@ -94,7 +90,7 @@ namespace WebDriverGrabber
                 var latestDownloadedVersion = File.ReadAllText(LatestDownloadedVersionFile);
                 if (LatestVersion.Equals(latestDownloadedVersion))
                 {
-                    Console.WriteLine($"Latest version {latestDownloadedVersion} already downloaded");
+                    Console.WriteLine($"  Latest version {latestDownloadedVersion} already downloaded");
                     return false;
                 }
             }
@@ -106,17 +102,15 @@ namespace WebDriverGrabber
         {
             var driverUrl = string.Format(_browser.DriverUrlTemplate, LatestVersion);
             var driverName = Path.GetFileName(driverUrl);
-            Console.WriteLine(driverUrl);
-            Console.WriteLine(driverName);
             var savePath = Path.Combine(_targetFolder, driverName);
-            Console.WriteLine($"Downloading {driverUrl}");
+            Console.WriteLine($"  Downloading {driverUrl}");
             _grabber.Download(driverUrl, SavePath);
             try
             {
                 ZipFile.ExtractToDirectory(savePath, _targetFolder, true);
             } catch (InvalidDataException)
             {
-                Console.WriteLine($"{savePath} is not a Zip file");
+                Console.WriteLine($"  {savePath} is not a Zip file");
             }
             File.WriteAllText(LatestDownloadedVersionFile, LatestVersion);
         }

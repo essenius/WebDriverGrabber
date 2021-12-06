@@ -38,6 +38,7 @@ namespace WebDriverGrabber
                 Console.WriteLine($"Browser: {browser.Name}");
                 var downloader = new Downloader(browser, _config.ExpandedTargetFolder, _grabber);
                 downloader.DownloadIfNeeded();
+                Console.WriteLine();
             }
         }
     }

@@ -116,7 +116,6 @@ namespace WebDriverGrabberTest
             var name = Path.GetFileNameWithoutExtension(tempFile) + "_latest.txt";
             var folder = Path.GetDirectoryName(tempFile);
             var versionFile = Path.Combine(folder, name);
-            Console.WriteLine(versionFile);
             File.WriteAllText(versionFile, "1.0");
             var browserConfig = new Browser
             {
