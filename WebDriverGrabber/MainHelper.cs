@@ -14,7 +14,6 @@ using System.IO;
 
 namespace WebDriverGrabber
 {
-
     /// <summary>Creates target folder if needed and then downloads all drivers that are needed</summary>
     public class MainHelper
     {
@@ -40,7 +39,6 @@ namespace WebDriverGrabber
                 var downloader = new Downloader(browser, _config.ExpandedTargetFolder, _grabber);
                 downloader.DownloadIfNeeded();
             }
-
         }
     }
 }

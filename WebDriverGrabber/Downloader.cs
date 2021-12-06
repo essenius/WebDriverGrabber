@@ -100,7 +100,6 @@ namespace WebDriverGrabber
             }
             return true;
         }
-
             
         /// <summary>Download the browser driver. This is expected to be a zip file, so extract it as well</summary>
         private void Download()

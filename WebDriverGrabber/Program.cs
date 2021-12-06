@@ -17,7 +17,6 @@ namespace WebDriverGrabber
     /// </summary>
     public class Program
     {
-
         public static void Main(string[] args)
         {
             var configFile = (args.Length > 0) ? args[0] : null;

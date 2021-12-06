@@ -31,23 +31,15 @@ namespace WebDriverGrabberTest
             Assert.IsTrue(browser.VersionUrl.Contains("https://"), "VersionUrl contains an URL");
             Assert.IsNull(browser.VersionExtractionRegex, "VersionExtractionRegex is null");
             Assert.IsTrue(browser.DriverUrlTemplate.Contains("https://"), "DriverUrlTemplate contains an URL");
-
         }
-
 
         [TestMethod]
         [ExpectedException(typeof(FileNotFoundException))]
-        public void CreateConfgurationNotFoundTest()
-        {
-            _ = Configuration.CreateConfiguration("Missing.json");
-        }
+        public void CreateConfgurationNotFoundTest() => _ = Configuration.CreateConfiguration("Missing.json");
 
         [TestMethod]
         [ExpectedException(typeof(InvalidDataException))]
 
-        public void CreateConfgurationWrongContentTest()
-        {
-            _ = Configuration.CreateConfiguration("WrongContent.json");
-        }
+        public void CreateConfgurationWrongContentTest() => _ = Configuration.CreateConfiguration("WrongContent.json");
     }
 }

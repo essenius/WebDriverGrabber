@@ -20,19 +20,15 @@ namespace WebDriverGrabberTest
     [TestClass]
     public class DownloaderTest
     {
-        private object GetPrivateProperty(object target, string property)
-        {
-            return target.GetType()
+        private object GetPrivateProperty(object target, string property) => 
+            target.GetType()
                 .GetProperty(property, BindingFlags.NonPublic | BindingFlags.Instance)
                 .GetValue(target, BindingFlags.DoNotWrapExceptions, null, null, null);
-        }
 
-        private object InvokePrivateMethod(object target, string method)
-        {
-            return target.GetType()
+        private object InvokePrivateMethod(object target, string method) =>
+            target.GetType()
                 .GetMethod(method, BindingFlags.NonPublic | BindingFlags.Instance)
                 .Invoke(target, BindingFlags.DoNotWrapExceptions, null, null, null);
-        }
 
         [TestMethod]
         public void DownloaderLatestVersionStaticOkTest()
